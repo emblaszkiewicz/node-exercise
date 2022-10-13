@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from "mongoose";
 import postsRoutes from './routes/postsRoutes';
 import usersRoutes from './routes/usersRoutes';
+import securedRoutes from './routes/securedRoutes';
 
 const app = express();
 
@@ -12,9 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
 //Endpoints
 app.use('/api', postsRoutes);
 app.use('/api', usersRoutes);
+app.use('/api', securedRoutes);
 
 //Error
 app.use('/api', (req: Request, res: Response) => {

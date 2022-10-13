@@ -16,4 +16,9 @@ export type JwtPayload = {
     id?: string;
 }
 
+export type TBlackList = {
+    token: string;
+    expireAt: Date;
+};
+
 export type TObject = Record<string, any>
