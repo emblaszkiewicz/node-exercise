@@ -67,7 +67,7 @@ const changeUserPassword = async (req: Request<TObject, TObject, TUser>, res: Re
 const logOut = async (req: Request, res: Response) => {
     try {
         const token = req.header('token');
-        await new BlackList({ token, expireAt: new Date() }).save();
+        await new BlackList({ token }).save();
         res.send({ message: 'You are logged out!'});
     } catch (err) {
         res.status(500).send({ message: err });
